@@ -1,0 +1,53 @@
+
+
+.fondo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    margin-bottom: 20px;
+}
+
+.custom-input {
+    width: 100%;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin-left: 10px;
+}
+
+
+.registro a{
+    margin-top: 10px;
+    color: #ff7f7f;
+    cursor: pointer;
+    /*font-style: italic;*/
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    align-items: center;
+    position: center;
+    text-align: center;
+    display: block; /* Convierte el enlace en un bloque para poder aplicar márgenes y centrarlo */
+    font-weight: bold;
+  }
