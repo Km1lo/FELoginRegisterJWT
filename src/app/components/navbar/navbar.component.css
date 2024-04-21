@@ -1,10 +1,51 @@
-.spacer{
-    flex: 1 1 auto;
+.spacer {
+  flex: 1 1 auto;
 }
 :host {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000; /* Ajusta según sea necesario */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ajusta según sea necesario */
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+/* ==================================== Usos para navbar*/
+
+/*Padding 10*/
+.padding30{
+    padding: 30px;
+}
+/*Quitar subrayado*/
+.no-underline {
+    text-decoration: none;
+}
+/*Quitar visitados de los navegadores (que no cambie de color a morado)*/
+.no-underline:visited {
+    color: inherit;
+}
+/*Color del navbar*/
+.colornavbar{
+    background-color: #0079db;
+}
+/*Color de los links del navbar*/
+.colorlinks{
+    color: white;
+}
+
+
+
+/* ==================================== Apartado del logo del navbar */
+.nav__logo-img {
+  width: 1.5rem;
+}
+
+.nav__logo {
+  color: white;
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  font-weight: var(--font-medium);
+}
