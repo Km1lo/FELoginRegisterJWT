@@ -11,9 +11,14 @@
         <a class="padding30 no-underline" aria-current="page" href="#contact">Contacto</a>
         <a class="padding30 no-underline" aria-current="page" href="#gift">Desarrolladores</a>
         <a class="padding30 no-underline" aria-current="page" href="#celebrate">Quienes somos</a>
-        <button mat-raised-button color="accent" [routerLink]="'/login'">
-          Login
+        <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="(userHasRole())" (click)="cerrar()">
+          LogOut
           <mat-icon class="material-symbols-outlined">login</mat-icon>
+        </button>
+
+        <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())"> 
+          Login
+          <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
         </button>
     </div>
   </mat-toolbar-row>

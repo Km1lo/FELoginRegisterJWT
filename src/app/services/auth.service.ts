@@ -35,7 +35,6 @@ export class AuthService {
       // Verificar si 'decodedToken.role' existe antes de acceder a 'authority'
       return decodedToken.role?.[0]?.authority || null;
     }
-  
     return null;
   }
 
