@@ -1,41 +1,41 @@
     <body class = "fondo">
-          <mat-card class="card"> 
-              <h2>Inicio de Sesión</h2>
-                  <div class="container">
-                      <div>
-                          <mat-form-field class="custom-input">
+      <div class="columna1">
+        <img src="assets/img/bodega.jpg" alt="Bodega">
+      </div>
+      <div class="columna2">
+        <mat-card class="card"> 
+          <h2>Inicio de Sesión</h2>
+              <div class="container">
+                  <div>
+                      <mat-form-field class="custom-input">
+      
+                        <input matInput placeholder="Usuario" [(ngModel)]="username" name="username" />
           
-                            <input matInput placeholder="Usuario" [(ngModel)]="username" name="username" />
-              
-                          </mat-form-field>
-                      </div>
-          
-                      <div>
-                          <mat-form-field class="custom-input">
-          
-                            <input  type="password" matInput  placeholder="Contraseña" [(ngModel)]="password" name="password" />
-                
-                            </mat-form-field>
-                      </div>          
+                      </mat-form-field>
+                  </div>
+      
+                  <div>
+                      <mat-form-field class="custom-input">
+      
+                        <input  type="password" matInput  placeholder="Contraseña" [(ngModel)]="password" name="password" />
+            
+                        </mat-form-field>
                   </div>          
-                  <div class="botones">
-                      <button class="button"
-                      mat-raised-button
-                      color="primary"
-                      type="button"
-                      (click)="login()"
-                      >
-                      Ok 
-                      </button>
-                      <button class="button" 
-                      mat-raised-button color="warn" 
-                      type="button" 
-                      (click)="cerrar()">
-                        Cancelar
-                      </button>              
-                  </div>
-                  <div class="registro">
-                    <a routerLink="/register">Crear cuenta nueva</a>
-                  </div>
-          </mat-card> 
-      </body>
+              </div>          
+              <div class="botones">
+                  <button class="button"
+                  mat-raised-button
+                  color="primary"
+                  type="button"
+                  (click)="login()"
+                  >
+                  INGRESAR 
+                  </button>   
+              </div>
+              <h2 class="h2alop">¿No tienes una cuenta?</h2> 
+              <div class="registro">
+                <button mat-raised-button color="warn" routerLink="/register">Crear cuenta nueva</button>
+              </div>
+        </mat-card> 
+      </div>
+    </body>

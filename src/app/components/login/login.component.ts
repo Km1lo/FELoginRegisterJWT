@@ -33,8 +33,4 @@ export class LoginComponent {
       this.snackBar.open("Credenciales incorrectas!!!", "Aviso",{duration:2000});
     });
   }
-  cerrar() {
-    
-    //this.router.navigate(['/home']);
-  }
 }
