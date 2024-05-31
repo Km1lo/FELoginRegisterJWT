@@ -15,6 +15,10 @@ export class NavbarComponent implements OnInit{
   userHasRole(){
     return this.authService.verificar();
   }
+  userRole(role: string): boolean {
+    const userRole = this.authService.showRole();
+    return userRole === role;
+  }
   cerrar() {
     sessionStorage.clear();
   }

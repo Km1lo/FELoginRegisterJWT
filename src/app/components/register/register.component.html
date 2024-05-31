@@ -3,40 +3,68 @@
     <img src="assets/img/bodega.jpg" alt="Bodega">
   </div>
   <div class="columna2">
-    <div class="container">
-        <!-- register.component.html -->
-        <form [formGroup]="myForm" (ngSubmit)="register()">
-            <mat-card class="card">
-              <h2>Crear una cuenta</h2>
-            
-              <mat-card-content>
-                <mat-form-field appearance="fill">
-                  <mat-label>Usuario</mat-label>
-                  <input matInput type="text" placeholder="Usuario" formControlName="username" />
-                </mat-form-field>
-  
-                <mat-form-field appearance="fill">
-                  <mat-label>Nombres</mat-label>
-                  <input matInput type="text" placeholder="Nombres" formControlName="nombres" />
-                </mat-form-field>
-  
-                <mat-form-field appearance="fill">
-                  <mat-label>Apellidos</mat-label>
-                  <input matInput type="text" placeholder="Apellidos" formControlName="apellidos" />
-                </mat-form-field>
-  
-                <mat-form-field appearance="fill">
-                  <mat-label>Contraseña</mat-label>
-                  <input matInput type="password" placeholder="Contraseña" formControlName="password" />
-                </mat-form-field>
-  
-              </mat-card-content>
-            
-              <mat-card-actions>
-                <button class="button" mat-raised-button color="accent" type="submit" [disabled]="myForm.invalid">Crear Cuenta</button>
-                <button class="button" mat-raised-button color="warn" type="button" (click)="cerrar()">Cancelar</button>      </mat-card-actions>
-            </mat-card>
-        </form>
-    </div>
+    <form [formGroup]="myForm" (ngSubmit)="register()">
+      <mat-card class="card">
+        <h2>Crear una cuenta</h2>
+        <mat-card-content class="form-container">
+          <div class="form-column">
+            <mat-form-field appearance="fill">
+              <mat-label>Usuario</mat-label>
+              <input matInput type="text" placeholder="Usuario" formControlName="username" />
+              <mat-error *ngIf="myForm.get('username')?.invalid && myForm.get('username')?.touched">
+                Usuario mínimo 4 caracteres.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Nombres</mat-label>
+              <input matInput type="text" placeholder="Nombres" formControlName="nombres" />
+              <mat-error *ngIf="myForm.get('nombres')?.invalid && myForm.get('nombres')?.touched">
+                Nombres solo puede contener letras.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Apellidos</mat-label>
+              <input matInput type="text" placeholder="Apellidos" formControlName="apellidos" />
+              <mat-error *ngIf="myForm.get('apellidos')?.invalid && myForm.get('apellidos')?.touched">
+                Apellidos solo puede contener letras.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-column">
+            <mat-form-field appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password" placeholder="Contraseña" formControlName="password" />
+              <mat-error *ngIf="myForm.get('password')?.invalid && myForm.get('password')?.touched">
+                Contraseña mínimo 6 caracteres.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>DNI</mat-label>
+              <input matInput type="text" placeholder="DNI" formControlName="dni" />
+              <mat-error *ngIf="myForm.get('dni')?.invalid && myForm.get('dni')?.touched">
+                DNI debe tener 8 dígitos.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Dirección</mat-label>
+              <input matInput type="text" placeholder="Dirección" formControlName="direccion" />
+              <mat-error *ngIf="myForm.get('direccion')?.invalid && myForm.get('direccion')?.touched">
+                Dirección es requerida.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Telefono</mat-label>
+            <input matInput type="text" placeholder="Telefono" formControlName="telefono" />
+            <mat-error *ngIf="myForm.get('telefono')?.invalid && myForm.get('telefono')?.touched">
+              Teléfono es requerido y debe tener 9 dígitos.
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="button" mat-raised-button color="accent" type="submit" [disabled]="myForm.invalid">Crear Cuenta</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
   </div>
 </div>

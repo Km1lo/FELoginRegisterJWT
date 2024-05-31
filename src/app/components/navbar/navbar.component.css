@@ -34,8 +34,9 @@
 .colorlinks{
     color: white;
 }
-
-
+a{
+  color: white;
+}
 
 /* ==================================== Apartado del logo del navbar */
 .nav__logo-img {
