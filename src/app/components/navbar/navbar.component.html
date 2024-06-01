@@ -5,28 +5,31 @@
       Bodeguita Rositaa
     </a>
     <div>
-      <!-- Landing Page Links -->
-      <a class="padding30 no-underline" aria-current="page" href="#home" *ngIf="!(userHasRole())">Inicio</a>
-      <a class="padding30 no-underline" aria-current="page" href="#about" *ngIf="!(userHasRole())">Acerca de</a>
-      <a class="padding30 no-underline" aria-current="page" href="#services" *ngIf="!(userHasRole())">Servicios</a>
-      <a class="padding30 no-underline" aria-current="page" href="#contact" *ngIf="!(userHasRole())">Contacto</a>
-      <a class="padding30 no-underline" aria-current="page" href="#gift" *ngIf="!(userHasRole())">Desarrolladores</a>
-      <a class="padding30 no-underline" aria-current="page" href="#celebrate" *ngIf="!(userHasRole())">Quienes somos</a>
-      <!-- User -->
-      <a class="padding30 no-underline" aria-current="page" href="#historial" *ngIf="userRole('USER')">Historial de Movimientos</a>
-      <!-- Admin -->
-      <a class="padding30 no-underline" aria-current="page" href="#clientes" *ngIf="userRole('ADMIN')">Clientes</a>
-      <a class="padding30 no-underline" aria-current="page" href="#productos" *ngIf="userRole('ADMIN')">Productos</a>
-      <a class="padding30 no-underline" aria-current="page" href="#ventas" *ngIf="userRole('ADMIN')">Ventas</a>
-      <!-- Login/Logout -->
-      <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="(userHasRole())" (click)="cerrar()">
-        LogOut
-        <mat-icon class="material-symbols-outlined">login</mat-icon>
-      </button>
-      <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())"> 
-        Login
-        <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
-      </button>
+      <!--Landing Page-->
+        <a class="padding30 no-underline" aria-current="page" href="#home" *ngIf="!(userHasRole())">Inicio</a>
+        <a class="padding30 no-underline" aria-current="page" href="#about" *ngIf="!(userHasRole())">Acerca de</a>
+        <a class="padding30 no-underline" aria-current="page" href="#services" *ngIf="!(userHasRole())">Servicios</a>
+        <a class="padding30 no-underline" aria-current="page" href="#contact" *ngIf="!(userHasRole())">Contacto</a>
+        <a class="padding30 no-underline" aria-current="page" href="#gift" *ngIf="!(userHasRole())">Desarrolladores</a>
+        <a class="padding30 no-underline" aria-current="page" href="#celebrate" *ngIf="!(userHasRole())">Quienes somos</a>
+        <!--Usuario-->
+        <a class="padding30 no-underline" aria-current="page" href="#historial" *ngIf="userRole('USER')">Historial de Movimientos</a>
+
+        <!--Admin-->
+        <a class="padding30 no-underline" aria-current="page" href="#clientes" *ngIf="userRole('ADMIN')">Clientes</a>
+        <a class="padding30 no-underline" aria-current="page" href="#productos" *ngIf="userRole('ADMIN')">Productos</a>
+        <a class="padding30 no-underline" aria-current="page" href="#ventas" *ngIf="userRole('ADMIN')">Ventas</a>
+
+        <!--Login/LogOut-->
+        <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="(userHasRole())" (click)="cerrar()">
+          LogOut
+          <mat-icon class="material-symbols-outlined">login</mat-icon>
+        </button>
+
+        <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())"> 
+          Login
+          <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
+        </button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -41,25 +44,55 @@
             crossorigin="anonymous"></script>
 
 <header>
-  <!-- Main banner & button call to action -->
-  <div class="banner">
-    <div class="banner-left-side">
-      <div class="text-button-banner">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quae illo repellat tempora voluptates, reprehenderit quos nam repellendus aspernatur corrupti perspiciatis beatae quo ipsum delectus?</p>
-        <div>
-          <a href="#ContactUs" class="btn-no-link">
-            <button type="button" class="btn-build">Let's Start</button>
-          </a>
-          <a href="#about-us" class="btn-no-link">
-            <button type="button" class="btn-build">Know more</button>
-          </a>
+
+  <nav class="navbar navbar-expand-lg bg-build sticky-top">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-white">
+                <li class="nav-item px-3">
+                  <a class="nav-link" href="#inicio">Inicio</a>
+                </li>
+                <li class="nav-item px-3">
+                  <a class="nav-link" href="#acerca-de">About</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="#about-us">About Us</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="#services">Servicios</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="#Desarrolladores">Desarrolladores</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="#ContactUs">Contact Us</a>
+                </li>
+            </ul>
         </div>
-      </div>
+  </nav>
+    <!--Main banner & button call to action-->
+    <div class="banner">
+        <div class="banner-left-side">
+            <div class="text-button-banner">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing 
+                  elit. Sapiente quae illo repellat tempora voluptates, 
+                  reprehenderit quos nam repellendus aspernatur 
+                  corrupti perspiciatis beatae quo ipsum delectus?
+                </p>
+                <div>
+                    <a href="#ContactUs" class="btn-no-link">
+                    <button type="button" class="btn-build">Let's Start</button>
+                    </a>
+
+                    <a href="#about-us" class="btn-no-link">
+                    <button type="button" class="btn-build">Know more</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="banner-right-side">
+            <img class="img-fluid d-block principal-banner" src="img/portada.jpg" alt="Banner">
+        </div>
     </div>
-    <div class="banner-right-side">
-      <img class="img-fluid d-block principal-banner" src="assets/img/bodega.jpg" alt="Banner">
-    </div>
-  </div>
 </header>
 <!--acerca de-->
 <main>
