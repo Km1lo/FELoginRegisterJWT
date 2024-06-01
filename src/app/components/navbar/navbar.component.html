@@ -1,3 +1,4 @@
+<!-- Navbar -->
 <mat-toolbar class="colornavbar colorlinks">
   <mat-toolbar-row style="display: flex; justify-content: space-between;">
     <a href="#" class="nav__logo">
@@ -5,34 +6,32 @@
       Bodeguita Rosita
     </a>
     <div>
-      <!--Landing Page-->
-        <a class="padding30 no-underline" aria-current="page" href="#home" *ngIf="!(userHasRole())">Inicio</a>
-        <a class="padding30 no-underline" aria-current="page" href="#about" *ngIf="!(userHasRole())">Acerca de</a>
-        <a class="padding30 no-underline" aria-current="page" href="#services" *ngIf="!(userHasRole())">Servicios</a>
-        <a class="padding30 no-underline" aria-current="page" href="#contact" *ngIf="!(userHasRole())">Contacto</a>
-        <a class="padding30 no-underline" aria-current="page" href="#gift" *ngIf="!(userHasRole())">Desarrolladores</a>
-        <a class="padding30 no-underline" aria-current="page" href="#celebrate" *ngIf="!(userHasRole())">Quienes somos</a>
-        <!--Usuario-->
-        <a class="padding30 no-underline" aria-current="page" href="#historial" *ngIf="userRole('USER')">Historial de Movimientos</a>
-
-        <!--Admin-->
-        <a class="padding30 no-underline" aria-current="page" href="#clientes" *ngIf="userRole('ADMIN')">Clientes</a>
-        <a class="padding30 no-underline" aria-current="page" href="#productos" *ngIf="userRole('ADMIN')">Productos</a>
-        <a class="padding30 no-underline" aria-current="page" href="#ventas" *ngIf="userRole('ADMIN')">Ventas</a>
-
-        <!--Login/LogOut-->
-        <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="(userHasRole())" (click)="cerrar()">
-          LogOut
-          <mat-icon class="material-symbols-outlined">login</mat-icon>
-        </button>
-
-        <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())"> 
-          Login
-          <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
-        </button>
+      <!-- Landing Page Links -->
+      <a class="padding30 no-underline" aria-current="page" href="#home" *ngIf="!(userHasRole())">Inicio</a>
+      <a class="padding30 no-underline" aria-current="page" href="#about" *ngIf="!(userHasRole())">Acerca de</a>
+      <a class="padding30 no-underline" aria-current="page" href="#services" *ngIf="!(userHasRole())">Servicios</a>
+      <a class="padding30 no-underline" aria-current="page" href="#contact" *ngIf="!(userHasRole())">Contacto</a>
+      <a class="padding30 no-underline" aria-current="page" href="#gift" *ngIf="!(userHasRole())">Desarrolladores</a>
+      <a class="padding30 no-underline" aria-current="page" href="#celebrate" *ngIf="!(userHasRole())">Quienes somos</a>
+      <!-- User -->
+      <a class="padding30 no-underline" aria-current="page" href="#historial" *ngIf="userRole('USER')">Historial de Movimientos</a>
+      <!-- Admin -->
+      <a class="padding30 no-underline" aria-current="page" href="#clientes" *ngIf="userRole('ADMIN')">Clientes</a>
+      <a class="padding30 no-underline" aria-current="page" href="#productos" *ngIf="userRole('ADMIN')">Productos</a>
+      <a class="padding30 no-underline" aria-current="page" href="#ventas" *ngIf="userRole('ADMIN')">Ventas</a>
+      <!-- Login/Logout -->
+      <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="(userHasRole())" (click)="cerrar()">
+        LogOut
+        <mat-icon class="material-symbols-outlined">login</mat-icon>
+      </button>
+      <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())"> 
+        Login
+        <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
+      </button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
+
 
 
 
@@ -42,91 +41,57 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
-
+<!-- Landing Page -->
 <header>
-
-  <nav class="navbar navbar-expand-lg bg-build sticky-top">
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-white">
-                <li class="nav-item px-3">
-                  <a class="nav-link" href="#inicio">Inicio</a>
-                </li>
-                <li class="nav-item px-3">
-                  <a class="nav-link" href="#acerca-de">About</a>
-                </li>
-                <li class="nav-item px-3">
-                    <a class="nav-link" href="#about-us">About Us</a>
-                </li>
-                <li class="nav-item px-3">
-                    <a class="nav-link" href="#services">Servicios</a>
-                </li>
-                <li class="nav-item px-3">
-                    <a class="nav-link" href="#Desarrolladores">Desarrolladores</a>
-                </li>
-                <li class="nav-item px-3">
-                    <a class="nav-link" href="#ContactUs">Contact Us</a>
-                </li>
-            </ul>
+  <!-- Main banner & button call to action -->
+  <div class="banner">
+    <div class="banner-left-side">
+      <div class="text-button-banner">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quae illo repellat tempora voluptates, reprehenderit quos nam repellendus aspernatur corrupti perspiciatis beatae quo ipsum delectus?</p>
+        <div>
+          <a href="#ContactUs" class="btn-no-link">
+            <button type="button" class="btn-build">Let's Start</button>
+          </a>
+          <a href="#about-us" class="btn-no-link">
+            <button type="button" class="btn-build">Know more</button>
+          </a>
         </div>
-  </nav>
-    <!--Main banner & button call to action-->
-    <div class="banner">
-        <div class="banner-left-side">
-            <div class="text-button-banner">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-                  elit. Sapiente quae illo repellat tempora voluptates, 
-                  reprehenderit quos nam repellendus aspernatur 
-                  corrupti perspiciatis beatae quo ipsum delectus?
-                </p>
-                <div>
-                    <a href="#ContactUs" class="btn-no-link">
-                    <button type="button" class="btn-build">Let's Start</button>
-                    </a>
-
-                    <a href="#about-us" class="btn-no-link">
-                    <button type="button" class="btn-build">Know more</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="banner-right-side">
-            <img class="img-fluid d-block principal-banner" src="img/portada.jpg" alt="Banner">
-        </div>
+      </div>
     </div>
-</header>
-<!--acerca de-->
-<main>
-  <div class="about" id="acerca-de">
-    <div class="about-header">
-        <h1>Acerca de</h1>
-    </div>
-    <div class="about-content">
-        <div class = "about-image">
-            <img src="img/video.jpg" alt="Representative Image about Build">
-        </div>
-        <div class="about-text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-              elit. Sapiente quae illo repellat tempora voluptates, 
-              reprehenderit quos nam repellendus aspernatur 
-              corrupti perspiciatis beatae quo ipsum delectus?</p>
-        </div>
+    <div class="banner-right-side">
+      <img class="img-fluid d-block principal-banner" src="assets/img/bodega.jpg" alt="Banner">
     </div>
   </div>
-  <!--about us-->
-  <div class="about-us" id="about-us">
+</header>
+
+<!-- Acerca de -->
+<main>
+  <div class="about" id="about">
+    <div class="about-header">
+      <h1>Acerca de</h1>
+    </div>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="assets/img/video.jpg" alt="Representative Image about Build">
+      </div>
+      <div class="about-text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quae illo repellat tempora voluptates, reprehenderit quos nam repellendus aspernatur corrupti perspiciatis beatae quo ipsum delectus?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quienes somos -->
+  <div class="about-us" id="celebrate">
     <div class="about-us-header">
-        <h1>Quienes somos</h1>
+      <h1>Quienes somos</h1>
     </div>
     <div class="about-us-content">
-        <div class = "about-us-image">
-            <img src="img/video.jpg" alt="Representative Image about Build">
-        </div>
-        <div class="about-us-text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-              elit. Sapiente quae illo repellat tempora voluptates, 
-              reprehenderit quos nam repellendus aspernatur 
-              corrupti perspiciatis beatae quo ipsum delectus?</p>
-        </div>
+      <div class="about-us-image">
+        <img src="/src/assets/img/video.jpg" alt="Representative Image about Build">
+      </div>
+      <div class="about-us-text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quae illo repellat tempora voluptates, reprehenderit quos nam repellendus aspernatur corrupti perspiciatis beatae quo ipsum delectus?</p>
+      </div>
     </div>
   </div>
 
@@ -135,111 +100,105 @@
     <div class="wrap-title-section">
       <h2>Categorías de Servicios</h2>
     </div>
-
     <div class="wrap-servicios-section">
       <a href="" class="item-servicios-section">
         <img src="img/1.jpg" alt="">
-          <p>Item categoría</p>
+        <p>Item categoría</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/2.jpg" alt="">
-          <p>Item categoría</p>
+        <p>Item categoría</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/3.jpg" alt="">
-          <p>Item categoría</p>
+        <p>Item categoría</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/4.jpg" alt="">
-          <p>Item categoría</p>
+        <p>Item categoría</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/5.jpg" alt="">
-          <p>Item categoría</p>
+        <p>Item categoría</p>
       </a>
     </div>
   </div>
 
-   <!-- Desarrolladores -->
-  <div class="section-participants-section" id="Desarrolladores">
+  <!-- Desarrolladores -->
+  <div class="section-participants-section" id="gift">
     <div class="wrap-title-section">
       <h2>Desarrolladores</h2>
     </div>
-
     <div class="wrap-servicios-section">
       <a href="" class="item-servicios-section">
         <img src="img/1.jpg" alt="">
-          <p>Nombre</p>
+        <p>Nombre</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/2.jpg" alt="">
-          <p>Nombre</p>
+        <p>Nombre</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/3.jpg" alt="">
-          <p>Nombre</p>
+        <p>Nombre</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/4.jpg" alt="">
-          <p>Nombre</p>
+        <p>Nombre</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/5.jpg" alt="">
-          <p>Nombre</p>
+        <p>Nombre</p>
       </a>
       <a href="" class="item-servicios-section">
         <img src="img/3.jpg" alt="">
-          <p>Nombre</p>
+        <p>Nombre</p>
       </a>
     </div>
   </div>
 
-  <!-- Contactanos-->
+  <!-- Contactanos -->
   <div class="content-form" id="ContactUs">
     <h1 class="logo-contact">Contactanos</h1>
     <div class="contact-wrapper">
-        <div class="contact-form">
-            <form action="">
-                <p>
-                    <label>Nombres</label>
-                    <input type="text" name="name" id="name">
-                </p>
-                <p>
-                    <label>Apellidos</label>
-                    <input type="text" name="lastname" id="lastname">
-                </p>
-                <p class="block">
-                    <label>Correo </label>
-                    <input type="email" name="email">
-                </p>
-                <p class="block">
-                    <label>Detalles</label>
-                    <textarea name="message" rows="4"></textarea>
-                </p>
-                <p class="block">
-                    <button type="submit">Enviar</button>
-                </p>
-            </form>
-        </div>    
-        <div class="contact-image">
-            <img src="img/portada.jpg" />
-        </div>
-    </div>
-  
-  <!-- FOOTER -->
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer">
-      <div class="footer-content">
-        <div class="footer-content-text">
-          <p>©copytight 2024 - Todos los derechos reservados.</p>
-        </div>
-        <div class="footer-content-social">
-          <a href=""><ion-icon name="logo-facebook"></ion-icon></a>
-          <a href=""><ion-icon name="logo-twitter"></ion-icon></a>
-          <a href=""><ion-icon name="logo-instagram"></ion-icon></a>
-          <a href=""><ion-icon name="logo-youtube"></ion-icon></a>
-        </div>
+      <div class="contact-form">
+        <form action="">
+          <p>
+            <label>Nombres</label>
+            <input type="text" name="name" id="name">
+          </p>
+          <p>
+            <label>Apellidos</label>
+            <input type="text" name="lastname" id="lastname">
+          </p>
+          <p class="block">
+            <label>Correo </label>
+            <input type="email" name="email">
+          </p>
+          <p class="block">
+            <label>Detalles</label>
+            <textarea name="message" rows="4"></textarea>
+          </p>
+          <p class="block">
+            <button type="submit">Enviar</button>
+          </p>
+        </form>
+      </div>
+      <div class="contact-image">
+        <img src="img/portada.jpg" />
       </div>
     </div>
-  </footer>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer-content-text">
+        <p>©copytight 2024 - Todos los derechos reservados.</p>
+      </div>
+      <div class="footer-content-social">
+        <a href=""><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href=""><ion-icon name="logo-twitter"></ion-icon></a>
+        <a href=""><ion-icon name="logo-instagram"></ion-icon></a>
