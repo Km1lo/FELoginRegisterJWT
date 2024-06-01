@@ -1,12 +1,15 @@
 export class User {
-    id: number =0
-    username : string = ""
-    password: string = ""
-    nombres : string = ""
-    apellidos : string = ""
-    dni: string=""
-    direccion: string = ""
-    telefono: string = ""
+    constructor(
+        public id: number,
+        public username: string,
+        public password: string,
+        public dni: number,
+        public nombres: string,
+        public apellidos: string,
+        public direccion: string,
+        public telefono?: number // ? indica que es opcional
+    ) {}
 }
+
   
   
