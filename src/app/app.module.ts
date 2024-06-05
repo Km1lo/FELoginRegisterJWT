@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { IonicModule } from '@ionic/angular';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
-    IonicModule.forRoot({})
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
