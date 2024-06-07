@@ -42,8 +42,14 @@ export class LoginComponent implements OnInit {
       this.snackBar.open("Se ha iniciado sesion correctamente uwu!!", "Aviso", { duration: 2000 });
 
       this.role = this.authService.showRole();
-      console.log(this.role);
-      //this.router.navigate(['/home'])
+      
+      //No mostrar el role por consola de producción
+      //console.log(this.role);
+      if(this.role == "USER"){
+        this.router.navigate(['/user'])
+      } else if(this.role == "ADMIN"){
+        this.router.navigate(['/admin'])
+      }
 
     }, error => {
       this.snackBar.open("Credenciales incorrectas!!!", "Aviso", { duration: 2000 });

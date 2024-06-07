@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     if (this.myForm.invalid) {
-      this.snackBar.open("Please fill all the fields correctly", "Error", { duration: 2000 });
+      this.snackBar.open("Rellene todos los campos correctamente", "Error", { duration: 2000 });
       return;
     }
 
@@ -47,13 +47,13 @@ export class RegisterComponent implements OnInit {
     this.authService.registerAuth(request).subscribe(
       (data: any) => {
         this.router.navigate(['/login'], { queryParams: { username: request.username } });
-        this.snackBar.open("Registration successful", "Success", { duration: 2000 });
+        this.snackBar.open("Se registro correctamente", "Success", { duration: 2000 });
         console.log(data);
         console.log(request);
       },
       (error) => {
         console.error(error);
-        this.snackBar.open("Registration failed", "Error", { duration: 2000 });
+        this.snackBar.open("Hubo un problema en el registro", "Error", { duration: 2000 });
       }
     );
   }

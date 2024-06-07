@@ -10,13 +10,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserscreenComponent } from './components/userscreen/userscreen.component';
+import { AdminscreenComponent } from './components/adminscreen/adminscreen.component';
+import { ClientesListComponent } from './components/clientes/clientes-list/clientes-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserscreenComponent,
+    AdminscreenComponent,
+    ClientesListComponent
   ],
   imports: [
     BrowserModule,
