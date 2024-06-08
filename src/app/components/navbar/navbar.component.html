@@ -1,35 +1,34 @@
-<mat-toolbar class="colornavbar colorlinks">
-  <mat-toolbar-row style="display: flex; justify-content: space-between;">
-    <a href="#" class="nav__logo">
-      <img src="" alt="" class="nav__logo-img" />
-      Bodeguita Rosita
-    </a>
-    <div>
-      <!--Landing Page-->
-        <a class="padding30 no-underline" aria-current="page" href="#home" *ngIf="!(userHasRole())">Inicio</a>
-        <a class="padding30 no-underline" aria-current="page" href="#about" *ngIf="!(userHasRole())">Acerca de</a>
-        <a class="padding30 no-underline" aria-current="page" href="#services" *ngIf="!(userHasRole())">Servicios</a>
-        <a class="padding30 no-underline" aria-current="page" href="#contact" *ngIf="!(userHasRole())">Contacto</a>
-        <a class="padding30 no-underline" aria-current="page" href="#gift" *ngIf="!(userHasRole())">Desarrolladores</a>
-        <a class="padding30 no-underline" aria-current="page" href="#celebrate" *ngIf="!(userHasRole())">Quienes somos</a>
-        <!--Usuario-->
-        <a class="padding30 no-underline" aria-current="page" href="#historial" *ngIf="userRole('USER')">Historial de Movimientos</a>
 
-        <!--Admin-->
-        <a class="padding30 no-underline" aria-current="page" href="#clientes" *ngIf="userRole('ADMIN')">Clientes</a>
-        <a class="padding30 no-underline" aria-current="page" href="#productos" *ngIf="userRole('ADMIN')">Productos</a>
-        <a class="padding30 no-underline" aria-current="page" href="#ventas" *ngIf="userRole('ADMIN')">Ventas</a>
-
-        <!--Login/LogOut-->
-        <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="(userHasRole())" (click)="cerrar()">
-          LogOut
-          <mat-icon class="material-symbols-outlined">login</mat-icon>
-        </button>
-
-        <button mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())"> 
-          Login
-          <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
-        </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky">
+    <div class="container-fluid">
+      <a class="nav-item navbar-brand" href="" style="color: #000000;">Bodeguita Rosita</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto">
+            <!--Landing Page-->
+            <a class="nav-item no-underline" aria-current="page" href="#home" *ngIf="!(userHasRole())">Inicio</a>
+            <a class="nav-item no-underline" aria-current="page" href="#objetivos" *ngIf="!(userHasRole())">Objetivos & Servicios</a>
+            <a class="nav-item no-underline" aria-current="page" href="#quienes-somos" *ngIf="!(userHasRole())">Quienes Somos</a>
+            <a class="nav-item no-underline" aria-current="page" href="#desarrolladores" *ngIf="!(userHasRole())">Desarrolladores</a>
+            <!--Usuario-->
+            <a class="nav-item no-underline" aria-current="page" href="#historial" *ngIf="userRole('USER')">Historial de Movimientos</a>
+            <!--Admin-->
+            <a class="nav-item no-underline" aria-current="page" href="#clientes" *ngIf="userRole('ADMIN')">Clientes</a>
+            <a class="nav-item no-underline" aria-current="page" href="#productos" *ngIf="userRole('ADMIN')">Productos</a>
+            <a class="nav-item no-underline" aria-current="page" href="#ventas" *ngIf="userRole('ADMIN')">Ventas</a>
+            <!--Login/LogOut-->
+            <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="(userHasRole())" (click)="cerrar()">
+              LogOut
+              <mat-icon class="material-symbols-outlined">login</mat-icon>
+            </button>
+        
+            <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())"> 
+              Login
+              <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
+            </button>
+        </div>
+      </div>
     </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+</nav>

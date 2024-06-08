@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserscreenComponent } from './components/userscreen/userscreen.component';
 import { AdminscreenComponent } from './components/adminscreen/adminscreen.component';
 import { ClientesListComponent } from './components/clientes/clientes-list/clientes-list.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ClientesListComponent } from './components/clientes/clientes-list/clien
     RegisterComponent,
     UserscreenComponent,
     AdminscreenComponent,
-    ClientesListComponent
+    ClientesListComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

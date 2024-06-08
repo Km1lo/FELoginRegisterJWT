@@ -1,0 +1,30 @@
+.my-image {
+    width: 90%; /* Esto hará que la imagen tenga el ancho completo de su contenedor */
+    height: auto; /* Esto mantendrá la proporción de la imagen */
+    border-radius: 10px;
+}
+
+.title-section {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+}
+#objetivos {
+    padding-top: 70px; /* Ajusta este valor al tamaño de tu barra de navegación */
+    margin-top: -70px; /* Ajusta este valor al tamaño de tu barra de navegación */
+  }
+
+  #quienes-somos{
+    padding-top: 70px; /* Ajusta este valor al tamaño de tu barra de navegación */
+    margin-top: -70px; /* Ajusta este valor al tamaño de tu barra de navegación */
+  }
+
+  #desarrolladores{
+    padding-top: 70px; /* Ajusta este valor al tamaño de tu barra de navegación */
+    margin-top: -70px; /* Ajusta este valor al tamaño de tu barra de navegación */
+  }
+
+
+  .smaller-image {
+    width: 200px; /* Ajusta este valor a lo que necesites */
+  }

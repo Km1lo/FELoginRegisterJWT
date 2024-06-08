@@ -1,3 +1,24 @@
+.bg-body-tertiary {
+  background-color: #6C55F9 !important; /* Este es el código de color hexadecimal para el celeste */
+}
+
+.navbar-brand {
+  color: #000000 !important;  /*COLOR DE LA MARCA*/
+}
+
+.nav-item {
+  margin: 10px;  /* Ajusta este valor según tus necesidades */
+  padding: 10px; /* Ajusta este valor según tus necesidades */
+}
+
+.nav-item:visited {
+  color: inherit; /* Esto hará que el color del enlace visitado sea el mismo que el color del enlace no visitado */
+}
+
+
+/* ==================================== getbootstrap*/
+
+
 .spacer {
   flex: 1 1 auto;
 }
