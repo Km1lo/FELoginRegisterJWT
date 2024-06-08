@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Cliente } from '../models/cliente';
+import { User } from '../models/user';
 
 const base_url=environment.base
 
@@ -14,6 +15,12 @@ export class UserService {
   list(){
     let token = sessionStorage.getItem("token");
     return this.http.get<Cliente[]>(`${base_url}/cliente`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+  listUser(){
+    let token = sessionStorage.getItem("token");
+    return this.http.get<User[]>(`${base_url}/user`,{
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }

@@ -42,9 +42,23 @@ export class ClientesListComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {  
 
-        delete result.user.authorities;
+        delete result.user.authorities; //ERROR DEL AUTHORITIES
         console.log(result);
         this.edit(result);
+      }
+    });
+  }
+  opedAddDialog(cliente: any): void {
+    const dialogRef = this.dialog.open(DialogAddClienteComponent, {
+      width: '600px',
+      data: { ...cliente } 
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {  
+        delete result.user.authorities; //ERROR DEL AUTHORITIES
+        console.log(result);
+        this.add(result);
       }
     });
   }
