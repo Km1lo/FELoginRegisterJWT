@@ -1,46 +1,48 @@
 <div class="container">
-    <h2>Editando Cliente</h2>
     <form #editForm="ngForm">
-      <div>
-        <mat-form-field class="full-width">
-          <mat-label>Nombres</mat-label>
-          <input matInput placeholder="Nombres" name="nombres" [(ngModel)]="data.user.nombres" required />
-          <mat-error *ngIf="editForm.controls['nombres']?.errors?.['required']">Nombre es requerido</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field class="full-width">
-          <mat-label>Apellidos</mat-label>
-          <input matInput placeholder="Apellidos" name="apellidos" [(ngModel)]="data.user.apellidos" required />
-          <mat-error *ngIf="editForm.controls['apellidos']?.errors?.['required']">Apellido es requerido</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field class="full-width">
-          <mat-label>Celular</mat-label>
-          <input matInput placeholder="Celular" name="telefono" [(ngModel)]="data.user.telefono" pattern="[0-9]*" />
-          <mat-error *ngIf="editForm.controls['telefono']?.errors?.['pattern']">Ingrese solo números</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field class="full-width">
-          <mat-label>Dirección</mat-label>
-          <input matInput placeholder="Dirección" name="direccion" [(ngModel)]="data.user.direccion" required />
-          <mat-error *ngIf="editForm.controls['direccion']?.errors?.['required']">Dirección es requerida</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field class="full-width">
-          <mat-label>Límite de Crédito</mat-label>
-          <input matInput placeholder="Límite de Crédito" name="limite_credito" [(ngModel)]="data.limite_credito" required />
-          <mat-error *ngIf="editForm.controls['limite_credito']?.errors?.['required']">Límite de crédito es requerido</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field class="full-width">
-            <mat-label>Fecha de Pago Mensual</mat-label>
-            <input matInput placeholder="Fecha de Pago Mensual" name="fecha_pago_mensual" [(ngModel)]="data.fecha_pago_mensual" required />
-            <mat-error *ngIf="editForm.controls['fecha_pago_mensual']?.errors?.['required']">Fecha de pago mensual es requerido</mat-error>
-          </mat-form-field>
-  
+      <div class="container">
+        <h2>Editando Cliente</h2>
         <div>
-          <button mat-button (click)="cerrarDialogo()">Cancelar</button>
-          <button mat-button color="primary" [disabled]="editForm.invalid" (click)="confirmado()">Guardar</button>
+          <mat-form-field class="full-width">
+            <mat-label>Nombres</mat-label>
+            <input matInput placeholder="Nombres" name="nombres" [(ngModel)]="data.user.nombres" required />
+            <mat-error *ngIf="editForm.controls['nombres']?.errors?.['required']">Nombre es requerido</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field class="full-width">
+            <mat-label>Apellidos</mat-label>
+            <input matInput placeholder="Apellidos" name="apellidos" [(ngModel)]="data.user.apellidos" required />
+            <mat-error *ngIf="editForm.controls['apellidos']?.errors?.['required']">Apellido es requerido</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field class="full-width">
+            <mat-label>Celular</mat-label>
+            <input matInput placeholder="Celular" name="telefono" [(ngModel)]="data.user.telefono" pattern="[0-9]*" />
+            <mat-error *ngIf="editForm.controls['telefono']?.errors?.['pattern']">Ingrese solo números</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field class="full-width">
+            <mat-label>Dirección</mat-label>
+            <input matInput placeholder="Dirección" name="direccion" [(ngModel)]="data.user.direccion" required />
+            <mat-error *ngIf="editForm.controls['direccion']?.errors?.['required']">Dirección es requerida</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field class="full-width">
+            <mat-label>Límite de Crédito</mat-label>
+            <input matInput placeholder="Límite de Crédito" name="limite_credito" [(ngModel)]="data.limite_credito" required />
+            <mat-error *ngIf="editForm.controls['limite_credito']?.errors?.['required']">Límite de crédito es requerido</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field class="full-width">
+              <mat-label>Fecha de Pago Mensual</mat-label>
+              <input matInput placeholder="Fecha de Pago Mensual" name="fecha_pago_mensual" [(ngModel)]="data.fecha_pago_mensual" required />
+              <mat-error *ngIf="editForm.controls['fecha_pago_mensual']?.errors?.['required']">Fecha de pago mensual es requerido</mat-error>
+            </mat-form-field>
+    
+            <div class="button-container">
+              <button mat-button (click)="cerrarDialogo()">Cancelar</button>
+              <button mat-button color="primary" [disabled]="editForm.invalid" (click)="confirmado()">Guardar</button>
+            </div>
         </div>
       </div>
     </form>

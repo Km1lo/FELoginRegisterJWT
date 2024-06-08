@@ -3,7 +3,9 @@
 }
 
 .navbar-brand {
-  color: #000000 !important;  /*COLOR DE LA MARCA*/
+  color: #645F88 ;  /*COLOR DE LA MARCA*/
+  /*hacer mas grande*/
+  font-size: 1.5rem;
 }
 
 .nav-item {

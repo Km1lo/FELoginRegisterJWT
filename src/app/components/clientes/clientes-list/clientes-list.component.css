@@ -3,10 +3,6 @@
     margin-bottom: 20px; /* Espacio más grande entre el botón y la tabla */
     text-align: center; /* Centrar el botón */
 }
-h2 {
-    margin-left: 200px;
-
-}
 /* Ajustes de la tabla */
 .table-container {
     display: flex;
@@ -22,13 +18,11 @@ h2 {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombras suaves para dar un efecto de elevación */
 }
 
-/* Ajustes del paginador */
-mat-paginator {
-    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
-    display: flex;
-    justify-content: right; /* Centrar el paginador */
-    margin-right: 200px;
-
+/* Ajustes del paginador*/
+.paginator-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 /* Estilo del botón de agregar cliente */
@@ -64,3 +58,5 @@ th {
 td {
     background-color: white; /* Color de fondo para las celdas de datos */
 }
+
+

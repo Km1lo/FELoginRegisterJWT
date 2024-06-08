@@ -3,7 +3,7 @@ h2 {
   }
   
   form {
-    max-width: 600px;
+    max-width: auto;
     margin: 0 auto;
   }
   
@@ -16,16 +16,19 @@ h2 {
     width: 100%;
   }
   
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-  }
+
   
   button {
     min-width: 120px;
   }
-.container{
-    margin: 20px;
-}
   
+  .container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

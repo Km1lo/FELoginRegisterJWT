@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router, private viewportScroller: ViewportScroller) { }
 
   ngOnInit(): void {
     console.log(this.authService.verificar());
@@ -22,4 +24,19 @@ export class NavbarComponent implements OnInit{
   cerrar() {
     sessionStorage.clear();
   }
+  isHomePage(): boolean {
+    return this.router.url !== '/clientes' && this.router.url !== '/user' && this.router.url !== '/historial-movimiento' && this.router.url !== '/login' && this.router.url !== '/register';
+  }
+  isHomePageUser(): boolean {
+    return this.router.url !== '/';
+  }
+  isHomePagePanelControlAdmin(): boolean {
+    return this.router.url !== '/clientes' && this.router.url !== '/productos' && this.router.url !== '/ventas';
+  }
+  /*NAVBAR*/
+  scrollToSection(id: string) {
+    this.viewportScroller.scrollToAnchor(id);
+  }
+
+
 }
