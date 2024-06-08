@@ -19,6 +19,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSelectModule} from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -46,7 +48,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatExpansionModule,
     MatListModule,
     MatBadgeModule,
-    MatSelectModule
+    MatSelectModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    
   ]
 })
 export class MaterialModule { }

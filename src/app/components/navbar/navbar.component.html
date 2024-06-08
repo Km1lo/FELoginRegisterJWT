@@ -15,7 +15,7 @@
             <!--Usuario-->
             <a class="nav-item no-underline" aria-current="page" href="#historial" *ngIf="userRole('USER')">Historial de Movimientos</a>
             <!--Admin-->
-            <a class="nav-item no-underline" aria-current="page" href="#clientes" *ngIf="userRole('ADMIN')">Clientes</a>
+            <a class="nav-item no-underline" aria-current="page" [routerLink]="'/clientes'" *ngIf="userRole('ADMIN')">Clientes</a>
             <a class="nav-item no-underline" aria-current="page" href="#productos" *ngIf="userRole('ADMIN')">Productos</a>
             <a class="nav-item no-underline" aria-current="page" href="#ventas" *ngIf="userRole('ADMIN')">Ventas</a>
             <!--Login/LogOut-->

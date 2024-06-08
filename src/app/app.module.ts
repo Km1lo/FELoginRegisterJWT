@@ -11,9 +11,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserscreenComponent } from './components/userscreen/userscreen.component';
-import { AdminscreenComponent } from './components/adminscreen/adminscreen.component';
 import { ClientesListComponent } from './components/clientes/clientes-list/clientes-list.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { DialogAddClienteComponent } from './components/clientes/dialog-add-cliente/dialog-add-cliente.component';
+import { DialogEditClienteComponent } from './components/clientes/dialog-edit-cliente/dialog-edit-cliente.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { LandingComponent } from './components/landing/landing.component';
     LoginComponent,
     RegisterComponent,
     UserscreenComponent,
-    AdminscreenComponent,
     ClientesListComponent,
-    LandingComponent
+    LandingComponent,
+    DialogAddClienteComponent,
+    DialogEditClienteComponent
   ],
   imports: [
     BrowserModule,
