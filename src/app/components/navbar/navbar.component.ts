@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit{
     sessionStorage.clear();
   }
   isHomePage(): boolean {
-    return this.router.url !== '/clientes' && this.router.url !== '/user' && this.router.url !== '/historial-movimiento' && this.router.url !== '/login' && this.router.url !== '/register';
+    return this.router.url !== '/clientes' && this.router.url !== '/user' && this.router.url !== '/historial-movimiento' && this.router.url !== '/login' && this.router.url !== '/register' && this.router.url !== '/productos';
   }
   isHomePageUser(): boolean {
     return this.router.url !== '/';

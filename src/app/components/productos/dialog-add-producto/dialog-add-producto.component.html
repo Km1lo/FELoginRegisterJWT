@@ -1,1 +1,54 @@
-<p>dialog-add-producto works!</p>
+<div class="container">
+    <h2>Agregar Productos</h2>
+    <form #editForm="ngForm">
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Descripción</mat-label>
+          <input matInput placeholder="Descripción" name="descripcion" [(ngModel)]="data.descripcion" required />
+          <mat-error *ngIf="editForm.controls['descripcion']?.errors?.['required']">Descripción es requerido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Precio de Venta</mat-label>
+            <input type="number" matInput placeholder="Precio de Venta" name="precioventa" [(ngModel)]="data.precioventa" required />
+            <mat-error *ngIf="editForm.controls['precioventa']?.errors?.['required']">Precio de venta es requerido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Precio de Costo</mat-label>
+            <input type="number" matInput placeholder="Precio de Costo" name="preciocosto" [(ngModel)]="data.preciocosto" required />
+            <mat-error *ngIf="editForm.controls['preciocosto']?.errors?.['required']">preciocosto es requerido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Stock</mat-label>
+            <input type="number" matInput placeholder="Stock" name="stock" [(ngModel)]="data.stock" required />
+            <mat-error *ngIf="editForm.controls['stock']?.errors?.['required']">Stock es requerido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Categoría</mat-label>
+            <input matInput placeholder="Categoría" name="categoria" [(ngModel)]="data.categoria" required />
+            <mat-error *ngIf="editForm.controls['categoria']?.errors?.['required']">Categoría es requerido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Proveedor</mat-label>
+            <input matInput placeholder="proveedor" name="proveedor" [(ngModel)]="data.proveedor" required />
+            <mat-error *ngIf="editForm.controls['proveedor']?.errors?.['required']">Proveedor es requerido</mat-error>
+          </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Marca</mat-label>
+          <input matInput placeholder="marca" name="marca" [(ngModel)]="data.marca" required />
+          <mat-error *ngIf="editForm.controls['marca']?.errors?.['required']">Marca es requerido</mat-error>
+        </mat-form-field>
+  
+        <div class="button-container">
+          <button mat-button (click)="cerrarDialogo()">Cancelar</button>
+          <button mat-button color="primary" [disabled]="editForm.invalid" (click)="confirmado()">Guardar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

@@ -15,6 +15,9 @@ import { ClientesListComponent } from './components/clientes/clientes-list/clien
 import { LandingComponent } from './components/landing/landing.component';
 import { DialogAddClienteComponent } from './components/clientes/dialog-add-cliente/dialog-add-cliente.component';
 import { DialogEditClienteComponent } from './components/clientes/dialog-edit-cliente/dialog-edit-cliente.component';
+import { DialogAddProductoComponent } from './components/productos/dialog-add-producto/dialog-add-producto.component';
+import { DialogEditProductoComponent } from './components/productos/dialog-edit-producto/dialog-edit-producto.component';
+import { ProductosListComponent } from './components/productos/productos-list/productos-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { DialogEditClienteComponent } from './components/clientes/dialog-edit-cl
     ClientesListComponent,
     LandingComponent,
     DialogAddClienteComponent,
-    DialogEditClienteComponent
+    DialogEditClienteComponent,
+    DialogAddProductoComponent,
+    DialogEditProductoComponent,
+    ProductosListComponent
   ],
   imports: [
     BrowserModule,
