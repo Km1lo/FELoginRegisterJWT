@@ -2,7 +2,7 @@
     <h2 style="text-align: center;">Lista de los Productos</h2>
   
   <div class="boton">
-    <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" (click)="opedAddDialog(null)"> 
+    <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" (click)="openEditAddDialog(null)"> 
         Agregar Producto
         <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
     </button>
@@ -41,7 +41,7 @@
               <button mat-icon-button color="primary" (click)="delete(element.id)">
                 <mat-icon aria-label="Delete">delete</mat-icon>
               </button>
-              <button mat-icon-button color="primary" (click)="opedEditDialog(element)">
+              <button mat-icon-button color="primary" (click)="openEditAddDialog(element)">
                 <mat-icon aria-label="Edit">edit</mat-icon>
               </button>
             </td>

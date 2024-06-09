@@ -16,7 +16,6 @@ import { LandingComponent } from './components/landing/landing.component';
 import { DialogAddClienteComponent } from './components/clientes/dialog-add-cliente/dialog-add-cliente.component';
 import { DialogEditClienteComponent } from './components/clientes/dialog-edit-cliente/dialog-edit-cliente.component';
 import { DialogAddProductoComponent } from './components/productos/dialog-add-producto/dialog-add-producto.component';
-import { DialogEditProductoComponent } from './components/productos/dialog-edit-producto/dialog-edit-producto.component';
 import { ProductosListComponent } from './components/productos/productos-list/productos-list.component';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { ProductosListComponent } from './components/productos/productos-list/pr
     DialogAddClienteComponent,
     DialogEditClienteComponent,
     DialogAddProductoComponent,
-    DialogEditProductoComponent,
     ProductosListComponent
   ],
   imports: [

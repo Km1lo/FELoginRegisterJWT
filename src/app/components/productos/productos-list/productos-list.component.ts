@@ -6,8 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
-import { DialogEditProductoComponent } from '../dialog-edit-producto/dialog-edit-producto.component';
 import { DialogAddProductoComponent } from '../dialog-add-producto/dialog-add-producto.component';
+import { DialogAddClienteComponent } from '../../clientes/dialog-add-cliente/dialog-add-cliente.component';
 
 @Component({
   selector: 'app-productos-list',
@@ -33,36 +33,37 @@ export class ProductosListComponent {
     })
 
   }
-  opedEditDialog(producto: any): void {
-    const dialogRef = this.dialog.open(DialogEditProductoComponent, {
-      width: '600px',
-      data: { ...producto } 
-    });
-  
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {  
 
-        delete result.user.authorities; //ERROR DEL AUTHORITIES
-        console.log(result);
-        this.edit(result);
-      }
-    });
-  }
-  opedAddDialog(producto: any): void {
+
+  openEditAddDialog(producto: any): void {
+    const isEdit = producto !== null;
     const dialogRef = this.dialog.open(DialogAddProductoComponent, {
       width: '600px',
-      data: { ...producto } 
+      data: { ...producto, isEdit } 
     });
   
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {  
-        delete result.user.authorities; //ERROR DEL AUTHORITIES
-        console.log(result);
-        this.add(result);
+      if (result) {
+        if (isEdit) {
+          console.log('Cambios guardados:', result);
+          this.edit(result);
+        } else {
+          console.log('Agregado:', result);
+          this.add(result);
+        }
       }
     });
   }
+  
+
+
+
+
+
   add(producto:any) {
+    console.log(producto);
+    console.log('aca');
+
     this.productoService.add(producto).subscribe({
       next: (data) => {
         console.log("ingresando registro...")
