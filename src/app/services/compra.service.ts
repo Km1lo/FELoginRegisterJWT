@@ -16,9 +16,9 @@ export class CompraService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }
-  add(compra: Compra){
+  registrarCompra(compra: any){
     let token = sessionStorage.getItem("token");
-    return this.http.post<Compra[]>(`${base_url}/compra`,compra,{
+    return this.http.post<any[]>(`${base_url}/compra/registrar`,compra,{
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }

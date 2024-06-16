@@ -17,6 +17,7 @@ import { DialogAddClienteComponent } from './components/clientes/dialog-add-clie
 import { DialogEditClienteComponent } from './components/clientes/dialog-edit-cliente/dialog-edit-cliente.component';
 import { DialogAddProductoComponent } from './components/productos/dialog-add-producto/dialog-add-producto.component';
 import { ProductosListComponent } from './components/productos/productos-list/productos-list.component';
+import { CompraFormComponent } from './components/compra/compra-form/compra-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductosListComponent } from './components/productos/productos-list/pr
     DialogAddClienteComponent,
     DialogEditClienteComponent,
     DialogAddProductoComponent,
-    ProductosListComponent
+    ProductosListComponent,
+    CompraFormComponent
   ],
   imports: [
     BrowserModule,

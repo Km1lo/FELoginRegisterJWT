@@ -18,7 +18,7 @@
             <a class="nav-item no-underline" style="color: rgb(185, 0, 0); cursor: pointer; font-weight: 600;" aria-current="page" [routerLink]="'/clientes'" *ngIf="userRole('ADMIN') && isHomePagePanelControlAdmin()">Panel de control</a>
             <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/clientes'" *ngIf="userRole('ADMIN') && isHomePageUser()">Clientes</a>
             <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/productos'" *ngIf="userRole('ADMIN') && isHomePageUser()">Productos</a>
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/ventas'" *ngIf="userRole('ADMIN') && isHomePageUser()">Ventas</a>
+            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/compra-form'" *ngIf="userRole('ADMIN') && isHomePageUser()">Ventas</a>
             <!--Login/LogOut-->
             <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" [routerLink]="'/'" *ngIf="(userHasRole())" (click)="cerrar()">
               LogOut
