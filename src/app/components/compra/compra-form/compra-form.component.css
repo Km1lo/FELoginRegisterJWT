@@ -1,0 +1,6 @@
+/* Ajuste del botón */
+.boton {
+    margin-bottom: 20px; /* Espacio más grande entre el botón y la tabla */
+    margin-top: 20px;
+    text-align: center; /* Centrar el botón */
+}

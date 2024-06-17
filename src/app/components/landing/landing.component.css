@@ -1,7 +1,17 @@
 .my-image {
     width: 90%; /* Esto hará que la imagen tenga el ancho completo de su contenedor */
-    height: auto; /* Esto mantendrá la proporción de la imagen */
+    height: 225px; /* Esto mantendrá la proporción de la imagen */
     border-radius: 10px;
+}
+.card-service {
+  width: 300px;  /* Cambia esto al ancho que desees */
+  height: 500px; /* Cambia esto a la altura que desees */
+}
+
+.my-imageft{
+  width: 90%; /* Esto hará que la imagen tenga el ancho completo de su contenedor */
+  height: auto; /* Esto mantendrá la proporción de la imagen */
+  border-radius: 10px;
 }
 
 .title-section {

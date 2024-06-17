@@ -25,13 +25,13 @@ export class NavbarComponent implements OnInit{
     sessionStorage.clear();
   }
   isHomePage(): boolean {
-    return this.router.url !== '/clientes' && this.router.url !== '/user' && this.router.url !== '/historial-movimiento' && this.router.url !== '/login' && this.router.url !== '/register' && this.router.url !== '/productos';
+    return this.router.url !== '/clientes' && this.router.url !== '/user' && this.router.url !== '/historial-movimiento' && this.router.url !== '/login' && this.router.url !== '/register' && this.router.url !== '/productos' && this.router.url !== '/compra-form' && this.router.url !== '/reporte-ventas';
   }
   isHomePageUser(): boolean {
     return this.router.url !== '/';
   }
   isHomePagePanelControlAdmin(): boolean {
-    return this.router.url !== '/clientes' && this.router.url !== '/productos' && this.router.url !== '/ventas';
+    return this.router.url !== '/clientes' && this.router.url !== '/productos' && this.router.url !== '/ventas' && this.router.url !== '/compra-form' && this.router.url !== '/reporte-ventas';
   }
   /*NAVBAR*/
   scrollToSection(id: string) {

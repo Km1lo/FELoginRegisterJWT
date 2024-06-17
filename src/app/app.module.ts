@@ -18,6 +18,7 @@ import { DialogEditClienteComponent } from './components/clientes/dialog-edit-cl
 import { DialogAddProductoComponent } from './components/productos/dialog-add-producto/dialog-add-producto.component';
 import { ProductosListComponent } from './components/productos/productos-list/productos-list.component';
 import { CompraFormComponent } from './components/compra/compra-form/compra-form.component';
+import { ReporteVentasComponent } from './components/ventas/reporte-ventas/reporte-ventas.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CompraFormComponent } from './components/compra/compra-form/compra-form
     DialogEditClienteComponent,
     DialogAddProductoComponent,
     ProductosListComponent,
-    CompraFormComponent
+    CompraFormComponent,
+    ReporteVentasComponent
   ],
   imports: [
     BrowserModule,
