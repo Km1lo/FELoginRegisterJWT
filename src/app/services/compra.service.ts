@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Compra } from '../models/compra';
+import { HistmovimientoDTO } from '../models/histmovimientoDTO';
+import { Observable } from 'rxjs';
 
 const base_url=environment.base
 
@@ -31,6 +33,13 @@ export class CompraService {
   delete(id: number ){
     let token = sessionStorage.getItem("token");
     return this.http.delete<Compra[]>(`${base_url}/compra/${id}`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+
+  consultaReporteCompra(): Observable<HistmovimientoDTO[]>{
+    let token = sessionStorage.getItem("token");
+    return this.http.get<HistmovimientoDTO[]>(`${base_url}/compra/reporte`,{
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }
