@@ -1,0 +1,77 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ajusta según sea necesario */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a237e; /* Azul oscuro */
+}
+
+.columna1 img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.fondo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh; /* Cambiado a min-height */
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  background-color: white; /* Fondo blanco */
+}
+
+.columna2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-card-content {
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f9f9f9; /* Color de fondo */
+  padding: 15px 0; /* Espaciado interno */
+  text-align: center; /* Centrado del texto */
+  font-size: 0.8rem; /* Tamaño de fuente reducido */
+  color: #666; /* Color de texto */
+}
+
+.social-icons {
+  margin-top: 10px;
+  text-align: center;
+  /* Centrar los íconos sociales */
+}
+
+.footer-icon {
+  font-size: 1.2rem;
+  /* Tamaño de fuente reducido */
+  margin: 0 8px;
+  /* Margen reducido entre íconos */
+  color: #555;
+  transition: color 0.3s;
+}
+
+.footer-icon:hover {
+  color: #4caf50;
+  /* Cambio de color al hacer hover */
+}

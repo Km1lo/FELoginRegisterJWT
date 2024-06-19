@@ -19,6 +19,8 @@ import { DialogAddProductoComponent } from './components/productos/dialog-add-pr
 import { ProductosListComponent } from './components/productos/productos-list/productos-list.component';
 import { CompraFormComponent } from './components/compra/compra-form/compra-form.component';
 import { ReporteVentasComponent } from './components/ventas/reporte-ventas/reporte-ventas.component';
+import { HistMovimientoComponent } from './components/hist-movimiento/hist-movimiento.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,10 @@ import { ReporteVentasComponent } from './components/ventas/reporte-ventas/repor
     DialogAddProductoComponent,
     ProductosListComponent,
     CompraFormComponent,
-    ReporteVentasComponent
+    ReporteVentasComponent,
+    HistMovimientoComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,8 @@ import { ReporteVentasComponent } from './components/ventas/reporte-ventas/repor
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

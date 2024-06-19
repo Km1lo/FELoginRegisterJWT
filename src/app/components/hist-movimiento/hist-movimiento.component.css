@@ -1,0 +1,15 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto; /* Centra horizontalmente la tabla dentro del contenedor */
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+
+}
