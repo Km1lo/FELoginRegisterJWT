@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Compra } from '../models/compra';
 import { HistmovimientoDTO } from '../models/histmovimientoDTO';
 import { Observable } from 'rxjs';
+import { Cliente } from '../models/cliente';
 
 const base_url=environment.base
 
@@ -43,4 +44,13 @@ export class CompraService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }
+
+  consultaReporteCompraPorCliente(clienteId: number): Observable<HistmovimientoDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<HistmovimientoDTO[]>(`${base_url}/compra/reporte/${clienteId}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+
+
 }

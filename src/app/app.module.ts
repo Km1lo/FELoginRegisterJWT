@@ -49,7 +49,7 @@ import { HistMovimientoComponent } from './components/hist-movimiento/hist-movim
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

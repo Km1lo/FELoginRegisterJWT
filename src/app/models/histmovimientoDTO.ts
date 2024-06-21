@@ -7,6 +7,8 @@ export class HistmovimientoDTO {
         public tasa_text: string,
         public tasa_num : number,
         public cuotas: number,
-        public capitalizacion: number
+        public capitalizacion: number,
+        public renta: number,
+        public totalAPagar: number,
     ) {}
 }

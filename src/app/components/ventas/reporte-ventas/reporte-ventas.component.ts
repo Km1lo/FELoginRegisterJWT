@@ -15,7 +15,6 @@ export class ReporteVentasComponent implements OnInit{
   report: HistmovimientoDTO[] = [];
   dataSource: MatTableDataSource<HistmovimientoDTO> = new MatTableDataSource();
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator
-
   displayedColumns: string[] = ['nombrecompleto', 'fecha', 'descripcion', 'subtotal', 'tasa_text', 'tasa_num', 'cuotas', 'capitalizacion'];
   constructor(private cS: CompraService) { }
 
