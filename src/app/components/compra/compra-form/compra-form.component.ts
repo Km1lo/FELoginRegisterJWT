@@ -31,8 +31,7 @@ export class CompraFormComponent implements OnInit {
     { value: 90, viewValue: 'Trimestral' },
     { value: 180, viewValue: 'Semestral' },
     { value: 365, viewValue: 'Anual' },
-    { value: 0, viewValue: null},
-
+    { value: 0, viewValue: null },
   ];
 
   constructor(
@@ -67,7 +66,6 @@ export class CompraFormComponent implements OnInit {
       const capitalizacionControl = this.purchaseForm.get('tipoCredito.capitalizacion')!;
       if (value === 'Efectiva') {
         capitalizacionControl.disable();
-
       } else {
         capitalizacionControl.enable();
       }
@@ -132,6 +130,10 @@ export class CompraFormComponent implements OnInit {
     this.dataSource.data = this.detallesCompra; // Actualizar el dataSource
   }
 
+  getTotalCompra(): number {
+    return this.detallesCompra.reduce((acc, detalle) => acc + detalle.subtotal, 0);
+  }
+
   registerCompra(): void {
     const clienteId = this.purchaseForm.get('cliente')?.value;
     const tipoCreditoValue = this.purchaseForm.get('tipoCredito')?.value;
@@ -147,6 +149,28 @@ export class CompraFormComponent implements OnInit {
     if (tipoCredito.tasaText === 'Efectiva') {
       tipoCredito.capitalizacion = 0;
     }
+
+    // Calcular el total de la compra
+    const totalCompra = this.getTotalCompra();
+
+    // Obtener el cliente seleccionado
+    const cliente = this.clientes.find(c => c.id === clienteId);
+
+    if (!cliente) {
+      this.snackBar.open('Cliente no encontrado', '', {
+        duration: 3000
+      });
+      return;
+    }
+
+    // Validar si el límite de crédito es suficiente
+    if (cliente && cliente.limite_credito !== undefined && cliente.limite_credito < totalCompra) {
+      this.snackBar.open('Crédito insuficiente', '', {
+        duration: 3000
+      });
+      return;
+    }
+
     // Crear el objeto Compra pero con los datos necesarios
     const compra = {
       clienteId: clienteId,
@@ -167,7 +191,6 @@ export class CompraFormComponent implements OnInit {
       this.dataSource.data = this.detallesCompra; // Actualizar el dataSource
     }, error => {
       console.error('Error al registrar la compra', error);
-      console.log(compra);
     });
   }
 }
