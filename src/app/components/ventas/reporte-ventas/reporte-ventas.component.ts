@@ -15,19 +15,19 @@ export class ReporteVentasComponent implements OnInit{
   report: HistmovimientoDTO[] = [];
   dataSource: MatTableDataSource<HistmovimientoDTO> = new MatTableDataSource();
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator
-  displayedColumns: string[] = ['nombrecompleto', 'fecha', 'descripcion', 'subtotal', 'tasa_text', 'tasa_num', 'cuotas', 'capitalizacion'];
+  displayedColumns: string[] = ['nombrecompleto', 'fecha', 'descripcion', 'subtotal', 'tasa_text', 'tasa_num', 'cuotas', 'capitalizacion', 'renta', 'totalAPagar', 'diasTrasladar', 'valorFuturo', 'interes'];
   constructor(private cS: CompraService) { }
 
 
   ngOnInit(): void {
-      this.cS.consultaReporteCompra().subscribe(data => {
+      this.cS.consultaReporteCompraTodosClientes().subscribe(data => {
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
       })
   }
 
   getReporteCompra(): void {
-    this.cS.consultaReporteCompra()
+    this.cS.consultaReporteCompraTodosClientes()
       .subscribe((data: HistmovimientoDTO[]) => {
         this.report = data;
     });

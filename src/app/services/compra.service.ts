@@ -45,6 +45,13 @@ export class CompraService {
     });
   }
 
+  consultaReporteCompraTodosClientes(): Observable<HistmovimientoDTO[]>{
+    let token = sessionStorage.getItem("token");
+    return this.http.get<HistmovimientoDTO[]>(`${base_url}/compra/reporte/clientes`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+
   consultaReporteCompraPorCliente(clienteId: number): Observable<HistmovimientoDTO[]> {
     let token = sessionStorage.getItem("token");
     return this.http.get<HistmovimientoDTO[]>(`${base_url}/compra/reporte/${clienteId}`, {
