@@ -12,6 +12,12 @@ const base_url=environment.base
 })
 export class UserService {
   constructor(private http: HttpClient) { }
+  getByUsername(username: string){
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Cliente>(`${base_url}/cliente/${username}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
   list(){
     let token = sessionStorage.getItem("token");
     return this.http.get<Cliente[]>(`${base_url}/cliente`,{

@@ -30,7 +30,9 @@ export class CompraFormComponent implements OnInit {
     { value: 30, viewValue: 'Mensual' },
     { value: 90, viewValue: 'Trimestral' },
     { value: 180, viewValue: 'Semestral' },
-    { value: 365, viewValue: 'Anual' }
+    { value: 365, viewValue: 'Anual' },
+    { value: 0, viewValue: null},
+
   ];
 
   constructor(
@@ -46,7 +48,7 @@ export class CompraFormComponent implements OnInit {
         tasaNum: [null, Validators.required],
         tasaText: [null, Validators.required],
         cuotas: [null, Validators.required],
-        capitalizacion: [null, Validators.required]
+        capitalizacion: [{ value: null, disabled: true }, Validators.required]
       }),
       productos: this.fb.array([this.createProductGroup()])
     });
@@ -58,6 +60,17 @@ export class CompraFormComponent implements OnInit {
     });
     this.clienteService.list().subscribe(clientes => {
       this.clientes = clientes;
+    });
+
+    // Listen for changes in the tasaText field
+    this.purchaseForm.get('tipoCredito.tasaText')?.valueChanges.subscribe(value => {
+      const capitalizacionControl = this.purchaseForm.get('tipoCredito.capitalizacion')!;
+      if (value === 'Efectiva') {
+        capitalizacionControl.disable();
+
+      } else {
+        capitalizacionControl.enable();
+      }
     });
   }
 
@@ -131,6 +144,9 @@ export class CompraFormComponent implements OnInit {
       tipoCreditoValue.capitalizacion
     );
 
+    if (tipoCredito.tasaText === 'Efectiva') {
+      tipoCredito.capitalizacion = 0;
+    }
     // Crear el objeto Compra pero con los datos necesarios
     const compra = {
       clienteId: clienteId,
@@ -140,7 +156,7 @@ export class CompraFormComponent implements OnInit {
         cantidad: detalle.cantidad
       }))
     };
-
+    
     this.compraService.registrarCompra(compra).subscribe(response => {
       console.log('Compra registrada con éxito', response);
       this.snackBar.open('Compra registrada con éxito', '', {

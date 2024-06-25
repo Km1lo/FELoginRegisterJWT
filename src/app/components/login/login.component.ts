@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Cliente } from 'src/app/models/cliente';
 import { JwtRequest } from 'src/app/models/jwt-request';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -40,6 +42,13 @@ export class LoginComponent implements OnInit {
     this.authService.loginAuth(request).subscribe((data: any) => {
       sessionStorage.setItem("token", data.token);
       this.snackBar.open("Se ha iniciado sesion correctamente uwu!!", "Aviso", { duration: 2000 });
+
+      let idUserCliente: number = 0;
+      this.userService.getByUsername(request.username).subscribe((cliente: Cliente) => {
+        console.log(cliente.id);
+        console.log(cliente.id.toString());
+        sessionStorage.setItem("id", cliente.id.toString());
+      });
 
       this.role = this.authService.showRole();
       

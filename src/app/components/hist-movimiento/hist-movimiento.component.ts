@@ -19,7 +19,11 @@ export class HistMovimientoComponent implements OnInit {
   constructor(private cS: CompraService) { }
 
   ngOnInit(): void {
-    this.getReporteCompraPorCliente(5); // Reemplaza 5 con el ID del cliente que deseas consultar
+    let idPRUEBA = sessionStorage.getItem("id");
+    console.log(idPRUEBA);
+    if (idPRUEBA !== null) {
+      this.getReporteCompraPorCliente(Number(idPRUEBA)); // Reemplaza 5 con el ID del cliente que deseas consultar
+    }
   }
 
   getReporteCompraPorCliente(clienteId: number): void {
