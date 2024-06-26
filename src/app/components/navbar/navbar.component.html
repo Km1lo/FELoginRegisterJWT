@@ -1,36 +1,37 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky">
-    <div class="container-fluid">
-      <a class="nav-item navbar-brand no-underline" href="" style="color: #645F88;">Bodeguita Rosita</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
-            <!--Landing Page-->
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" (click)="scrollToSection('home')" *ngIf="isHomePage()">Inicio</a>
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" (click)="scrollToSection('objetivos')" *ngIf="isHomePage()">Objetivos & Servicios</a>
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" (click)="scrollToSection('quienes-somos')" *ngIf="isHomePage()">Quienes Somos</a>
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" (click)="scrollToSection('desarrolladores')" *ngIf="isHomePage()">Desarrolladores</a>
-            <!--Usuario-->
-            <a class="nav-item no-underline" style="color: rgb(185, 0, 0); cursor: pointer; font-weight: 600;" aria-current="page" [routerLink]="'/historial-movimiento'" *ngIf="userRole('USER')">Historial de Movimientos</a>
-            <!--Admin-->
-            <a class="nav-item no-underline" style="color: rgb(185, 0, 0); cursor: pointer; font-weight: 600;" aria-current="page" [routerLink]="'/clientes'" *ngIf="userRole('ADMIN') && isHomePagePanelControlAdmin()">Panel de control</a>
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/clientes'" *ngIf="userRole('ADMIN') && isHomePageUser()">Clientes</a>
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/productos'" *ngIf="userRole('ADMIN') && isHomePageUser()">Productos</a>
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/compra-form'" *ngIf="userRole('ADMIN') && isHomePageUser()">Ventas</a>
-            <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/reporte-ventas'" *ngIf="userRole('ADMIN') && isHomePageUser()">Reporte de Ventas</a>
-            <!--Login/LogOut-->
-            <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" [routerLink]="'/'" *ngIf="(userHasRole())" (click)="cerrar()">
-              LogOut
-              <mat-icon class="material-symbols-outlined">login</mat-icon>
-            </button>
+  <div class="container-fluid">
+    <a class="nav-item navbar-brand no-underline" href="" style="color: #645F88;">Bodeguita Rosita</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+          <!--Landing Page-->
+          <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" (click)="scrollToSection('home')" *ngIf="isHomePage()">Inicio</a>
+          <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" (click)="scrollToSection('objetivos')" *ngIf="isHomePage()">Objetivos & Servicios</a>
+          <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" (click)="scrollToSection('quienes-somos')" *ngIf="isHomePage()">Quienes Somos</a>
+          <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" (click)="scrollToSection('desarrolladores')" *ngIf="isHomePage()">Desarrolladores</a>
+          <!--Usuario-->
+          <a class="nav-item no-underline" style="color: rgb(185, 0, 0); cursor: pointer; font-weight: 600;" aria-current="page" [routerLink]="'/historial-movimiento'" *ngIf="userRole('USER')">Historial de Movimientos</a>
+          <!--Admin-->
+          <a class="nav-item no-underline" style="color: rgb(185, 0, 0); cursor: pointer; font-weight: 600;" aria-current="page" [routerLink]="'/clientes'" *ngIf="userRole('ADMIN') && isHomePagePanelControlAdmin()">Panel de control</a>
+          <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/clientes'" *ngIf="userRole('ADMIN') && isHomePageUser()">Clientes</a>
+          <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/productos'" *ngIf="userRole('ADMIN') && isHomePageUser()">Productos</a>
+          <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/compra-form'" *ngIf="userRole('ADMIN') && isHomePageUser()">Ventas</a>
+          <a class="nav-item no-underline" style="color: black; cursor: pointer;" aria-current="page" [routerLink]="'/reporte-ventas'" *ngIf="userRole('ADMIN') && isHomePageUser()">Reporte de Ventas</a>
+          <!-- Crédito Restante -->
+          <span class="nav-item no-underline" style="color: green; font-weight: bold;" *ngIf="userRole('USER')">Crédito Restante: {{ limiteCredito }}</span>
+          <!--Login/LogOut-->
+          <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" [routerLink]="'/'" *ngIf="(userHasRole())" (click)="cerrar()">
+            LogOut
+            <mat-icon class="material-symbols-outlined">login</mat-icon>
+          </button>
 
-            <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())">
-              Login
-              <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
-            </button>
-        </div>
+          <button class="bg-body-tertiary nav-item" mat-raised-button color="accent" [routerLink]="'/login'" *ngIf="!(userHasRole())">
+            Login
+            <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
+          </button>
       </div>
     </div>
+  </div>
 </nav>

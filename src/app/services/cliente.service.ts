@@ -10,6 +10,15 @@ const base_url = environment.base;
   providedIn: 'root'
 })
 export class ClienteService {
-  constructor(private http: HttpClient) { }
+  private cliente: Cliente | null = null;
 
+  constructor() { }
+
+  setCliente(cliente: Cliente): void {
+    this.cliente = cliente;
+  }
+
+  getCliente(): Cliente | null {
+    return this.cliente;
+  }
 }
