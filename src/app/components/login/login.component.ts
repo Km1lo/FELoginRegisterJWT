@@ -49,9 +49,8 @@ export class LoginComponent implements OnInit {
         if (cliente.limite_credito !== undefined) {
           sessionStorage.setItem("credito", cliente.limite_credito.toString());
         }
-        this.navigateToRoleBasedPage(); // Navega a la página basada en el rol
       });
-
+      this.navigateToRoleBasedPage(); // Navega a la página basada en el rol
     }, error => {
       this.snackBar.open("Credenciales incorrectas!!!", "Aviso", { duration: 2000 });
     });

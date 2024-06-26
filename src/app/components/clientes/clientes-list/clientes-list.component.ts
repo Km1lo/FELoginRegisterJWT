@@ -20,7 +20,7 @@ export class ClientesListComponent {
   dataSource=new MatTableDataSource<Cliente>();
 
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator
-
+  
   constructor(public userService: UserService, private router: Router, private snackBar: MatSnackBar, public dialog:MatDialog) {}
 
   ngOnInit(): void {

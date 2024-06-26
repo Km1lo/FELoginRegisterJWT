@@ -4,12 +4,32 @@
   margin-top: 20px;
 }
 
-table {
-  width: 80%;
-  margin: 0 auto; /* Centra horizontalmente la tabla dentro del contenedor */
+
+
+
+/* Ajustes del paginador*/
+.paginator-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.mat-elevation-z8 {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+/* Ajustes generales */
+table {
+  border-spacing: 0 10px; /* Espacio entre las filas para un efecto de separación */
+  border-collapse: separate; /* Asegura que el espacio entre filas se aplique correctamente */
+}
 
+th, td {
+  padding: 5px; /* Relleno en las celdas */
+  text-align: left; /* Alineación del texto a la izquierda */
+}
+
+th {
+  background-color: #f1f1f1; /* Color de fondo para las celdas de encabezado */
+  font-weight: bold; /* Texto en negrita para el encabezado */
+}
+
+td {
+  background-color: white; /* Color de fondo para las celdas de datos */
 }
