@@ -23,5 +23,20 @@ export class HistMovimientoService {
 
     return this.http.get<HistmovimientoDTO[]>(`${this.histMovimientoUrl}/listar`, { headers });
   }
+
+  getHistorialById(id: number){
+      let token = sessionStorage.getItem("token");
+      return this.http.get<HistmovimientoDTO[]>(`${this.histMovimientoUrl}/${id}`, {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+      });
+  }
+  listHistorial(){
+    let token = sessionStorage.getItem("token");
+    return this.http.get<HistmovimientoDTO[]>(`${this.histMovimientoUrl}`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+
+
 }
 

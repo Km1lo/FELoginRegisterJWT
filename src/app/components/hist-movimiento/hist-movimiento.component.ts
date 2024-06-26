@@ -3,6 +3,7 @@ import { HistmovimientoDTO } from '../../models/histmovimientoDTO';
 import { CompraService } from 'src/app/services/compra.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { HistMovimientoService } from 'src/app/services/hist-movimiento.service';
 
 @Component({
   selector: 'app-hist-movimiento',
@@ -16,7 +17,7 @@ export class HistMovimientoComponent implements OnInit {
 
   displayedColumns: string[] = ['nombrecompleto', 'fecha', 'descripcion', 'subtotal', 'tasa_text', 'tasa_num', 'cuotas', 'capitalizacion', 'renta', 'totalAPagar', 'diasTrasladar', 'valorFuturo', 'interes'];
 
-  constructor(private cS: CompraService) { }
+  constructor(private cS: HistMovimientoService) { }
 
   ngOnInit(): void {
     let idPRUEBA = sessionStorage.getItem("id");
@@ -27,7 +28,7 @@ export class HistMovimientoComponent implements OnInit {
   }
 
   getReporteCompraPorCliente(clienteId: number): void {
-    this.cS.consultaReporteCompraPorCliente(clienteId).subscribe(data => {
+    this.cS.getHistorialById(clienteId).subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });

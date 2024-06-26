@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CompraService } from 'src/app/services/compra.service';
 import { HistmovimientoDTO } from 'src/app/models/histmovimientoDTO';
 import { MatPaginator } from '@angular/material/paginator';
+import { HistMovimientoService } from 'src/app/services/hist-movimiento.service';
 
 
 @Component({
@@ -16,18 +17,18 @@ export class ReporteVentasComponent implements OnInit{
   dataSource: MatTableDataSource<HistmovimientoDTO> = new MatTableDataSource();
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator
   displayedColumns: string[] = ['nombrecompleto', 'fecha', 'descripcion', 'subtotal', 'tasa_text', 'tasa_num', 'cuotas', 'capitalizacion', 'renta', 'totalAPagar', 'diasTrasladar', 'valorFuturo', 'interes'];
-  constructor(private cS: CompraService) { }
+  constructor(private cS: CompraService, private hS: HistMovimientoService) { }
 
 
   ngOnInit(): void {
-      this.cS.consultaReporteCompraTodosClientes().subscribe(data => {
+      this.hS.listHistorial().subscribe(data => {
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
       })
   }
 
   getReporteCompra(): void {
-    this.cS.consultaReporteCompraTodosClientes()
+    this.hS.listHistorial()
       .subscribe((data: HistmovimientoDTO[]) => {
         this.report = data;
     });
