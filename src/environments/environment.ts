@@ -1,4 +1,4 @@
 export const environment={
     production: false,
-    base: "http://localhost:8080"
+    base: "https://bkfinanzas-1-fe.onrender.com"
 }
