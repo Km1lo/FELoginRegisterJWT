@@ -104,12 +104,13 @@
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element; let i = index">
           <button mat-icon-button color="primary" (click)="opedEditDialog(element)">
-            <span class="material-symbols-outlined">
-              payments
-              </span>
+            <span class="material-symbols-outlined">payments</span>
+          </button>
+          <button mat-icon-button color="primary" (click)="generatePDF(element)">
+            <span class="material-symbols-outlined">picture_as_pdf</span>
           </button>
         </td>
-    </ng-container>
+      </ng-container>
 
   
   

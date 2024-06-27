@@ -8,6 +8,8 @@ import { HistMovimientoService } from 'src/app/services/hist-movimiento.service'
 import { ReporteVentasEditComponent } from '../reporte-ventas-edit/reporte-ventas-edit.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-reporte-ventas',
@@ -27,6 +29,7 @@ export class ReporteVentasComponent implements OnInit {
     this.hS.listHistorial().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
+      this.report = data;
     });
   }
 
@@ -34,7 +37,7 @@ export class ReporteVentasComponent implements OnInit {
     this.hS.listHistorial()
       .subscribe((data: HistmovimientoDTO[]) => {
         this.report = data;
-    });
+      });
   }
 
   opedEditDialog(cliente: any): void {
@@ -89,4 +92,110 @@ export class ReporteVentasComponent implements OnInit {
   formatNumber(value: any): string {
     return isNaN(value) ? '0' : value;
   }
+  generatePDF(element: any): void {
+    const doc = new jsPDF();
+    doc.text('Reporte de Venta', 14, 20);
+  
+    const rows = [
+      { title: 'Cliente', value: element.nombrecompleto },
+      { title: 'Fecha', value: new Date(element.fecha).toLocaleDateString() },
+      { title: 'Productos', value: this.getProductosDetalle(element.compra.detallesCompra) },
+      { title: 'Total (PRE INTERESES)', value: `S/.${element.subtotal}` },
+      { title: 'Tasa Escogida', value: element.tasa_text },
+      { title: 'Porcentaje de tasa', value: element.tasa_num+'%' },
+      { title: 'Cuotas', value: element.cuotas },
+    ];
+  
+    // Check if the tasa is Nominal or Efectiva
+    if (element.tasa_text === 'Nominal') {
+      rows.push(
+        { title: 'Capitalización', value: element.capitalizacion },
+        { title: 'Renta', value: `S/.${element.renta?.toFixed(2) || '0.00'}` },
+      );
+    }
+  
+    rows.push(
+      { title: 'Total a Pagar (POST INTERESES)', value: `S/.${element.valorFuturo?.toFixed(2)}` },
+      { title: 'Intereses Ganados', value: `S/.${element.interes?.toFixed(2)}` },
+      { title: 'Estado Pago', value: element.estadopago },
+    );
+  
+    let startY = 30;
+    let pageHeight = doc.internal.pageSize.height;
+  
+    rows.forEach(row => {
+      const splitTitle = doc.splitTextToSize(`${row.title}: `, 80);
+      const splitValue = doc.splitTextToSize(`${row.value}`, 110);
+  
+      // Check if there is enough space for the current row
+      if (startY + splitValue.length * 5 > pageHeight - 10) {
+        doc.addPage();
+        startY = 20;
+      }
+  
+      doc.text(splitTitle, 14, startY);
+      doc.text(splitValue, 80, startY);
+  
+      // Move to the next line
+      startY += splitValue.length * 5 + 10; // Adjust line spacing as needed
+    });
+  
+    doc.save('reporte_venta.pdf');
+  }
+  
+/*   generatePDF(element: any): void {
+    const doc = new jsPDF();
+    doc.text('Reporte de Venta', 14, 20);
+  
+    const rows = [
+      { title: 'Cliente', value: element.nombrecompleto },
+      { title: 'Fecha', value: new Date(element.fecha).toLocaleDateString() },
+      { title: 'Productos', value: this.getProductosDetalle(element.compra.detallesCompra) },
+      { title: 'Total (PRE INTERESES)', value: `S/.${element.subtotal}` },
+      { title: 'Tasa Escogida', value: element.tasa_text },
+      { title: 'Porcentaje de tasa', value: element.tasa_num },
+      { title: 'Cuotas', value: element.cuotas },
+      { title: 'Capitalización', value: element.capitalizacion },
+      { title: 'Renta', value: `S/.${element.renta?.toFixed(2) || '0.00'}` },
+      { title: 'Total a Pagar (POST INTERESES)', value: `S/.${element.valorFuturo?.toFixed(2)}` },
+      { title: 'Días a Trasladar', value: element.diasTrasladar },
+      { title: 'Intereses', value: `S/.${element.interes?.toFixed(2)}` },
+      { title: 'Estado Pago', value: element.estadopago },
+    ];
+  
+    let startY = 30;
+    let pageHeight = doc.internal.pageSize.height;
+  
+    rows.forEach(row => {
+      const splitTitle = doc.splitTextToSize(`${row.title}: `, 80);
+      const splitValue = doc.splitTextToSize(`${row.value}`, 110);
+  
+      // Check if there is enough space for the current row
+      if (startY + splitValue.length * 10 > pageHeight - 10) {
+        doc.addPage();
+        startY = 20;
+      }
+  
+      doc.text(splitTitle, 14, startY);
+      doc.text(splitValue, 80, startY);
+  
+      // Move to the next line
+      startY += splitValue.length * 5 + 10; // Adjust line spacing as needed
+    });
+  
+    doc.save('reporte_venta.pdf');
+  } */
+  
+  getProductosDetalle(detallesCompra: any[]): string {
+    let productosDetalle = '';
+  
+    detallesCompra.forEach(detalle => {
+      productosDetalle += `${detalle.producto?.descripcion}, Cantidad: ${detalle.cantidad}, Precio Por Unidad: S/.${detalle.producto.precioventa}\n`;
+    });
+  
+    return productosDetalle.trim();
+  }
+  
+  
+  
 }
