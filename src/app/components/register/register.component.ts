@@ -33,27 +33,39 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    const request: User = {
-      id: 0,
-      username: this.myForm.get('username')!.value,
-      password: this.myForm.get('password')!.value,
-      nombres: this.myForm.get('nombres')!.value,
-      apellidos: this.myForm.get('apellidos')!.value,
-      dni: this.myForm.get('dni')!.value,
-      direccion: this.myForm.get('direccion')!.value,
-      telefono: this.myForm.get('telefono')!.value
-    };
+    const dni = this.myForm.get('dni')!.value;
 
-    this.authService.registerAuth(request).subscribe(
-      (data: any) => {
-        this.router.navigate(['/login'], { queryParams: { username: request.username } });
-        this.snackBar.open("Se registro correctamente", "Success", { duration: 2000 });
-        console.log(data);
-        console.log(request);
+    this.authService.checkDniExists(dni).subscribe(
+      (exists: boolean) => {
+        if (exists) {
+          this.snackBar.open("El DNI ya existe", "Error", { duration: 2000 });
+        } else {
+          const request: User = {
+            id: 0,
+            username: this.myForm.get('username')!.value,
+            password: this.myForm.get('password')!.value,
+            nombres: this.myForm.get('nombres')!.value,
+            apellidos: this.myForm.get('apellidos')!.value,
+            dni: this.myForm.get('dni')!.value,
+            direccion: this.myForm.get('direccion')!.value,
+            telefono: this.myForm.get('telefono')!.value
+          };
+
+          this.authService.registerAuth(request).subscribe(
+            (data: any) => {
+              this.router.navigate(['/login'], { queryParams: { username: request.username } });
+              this.snackBar.open("Se registró correctamente", "Success", { duration: 2000 });
+            },
+            (error) => {
+              console.error(error);
+              this.snackBar.open("El usuario ya existe", "Error", { duration: 2000 });
+            }
+          );
+        }
       },
       (error) => {
         console.error(error);
-        this.snackBar.open("Hubo un problema en el registro", "Error", { duration: 2000 });
+        this.snackBar.open("Hubo un problema al verificar el DNI", "Error", { duration: 2000 });
       }
     );
   }

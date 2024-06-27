@@ -94,7 +94,37 @@ export class ReporteVentasComponent implements OnInit {
   }
   generatePDF(element: any): void {
     const doc = new jsPDF();
-    doc.text('Reporte de Venta', 14, 20);
+    const pageWidth = doc.internal.pageSize.getWidth();
+  
+    // Dibujar el rectángulo de la cabecera
+    doc.setFillColor(95, 75, 179); // Color de fondo (en RGB)
+    doc.rect(0, 0, pageWidth, 40, 'F');
+  
+  
+
+  // Agregar el texto "Bodega Rosita"
+  doc.setFontSize(16);
+  doc.setTextColor(255, 255, 255); // Color del texto (blanco)
+  const bodegaText = '- - BODEGA ROSITA - -';
+  const bodegaTextWidth = doc.getTextWidth(bodegaText);
+  const bodegaTextX = (pageWidth - bodegaTextWidth) / 2;
+  doc.text(bodegaText, bodegaTextX, 15);
+
+
+
+    // Agregar el texto de la cabecera
+    const headerText = 'REPORTE DE VENTA';
+    doc.setFontSize(18);
+    doc.setTextColor(255, 255, 255); // Color del texto (blanco)
+    const headerTextWidth = doc.getTextWidth(headerText);
+    const headerTextX = (pageWidth - headerTextWidth) / 2;
+    doc.text(headerText, headerTextX, 25);
+  
+    // Cambiar el color del texto a negro para el contenido
+    doc.setTextColor(0, 0, 0);
+  
+    // Ajustar la posición de inicio del contenido
+    let startY = 55;
   
     const rows = [
       { title: 'Cliente', value: element.nombrecompleto },
@@ -102,7 +132,7 @@ export class ReporteVentasComponent implements OnInit {
       { title: 'Productos', value: this.getProductosDetalle(element.compra.detallesCompra) },
       { title: 'Total (PRE INTERESES)', value: `S/.${element.subtotal}` },
       { title: 'Tasa Escogida', value: element.tasa_text },
-      { title: 'Porcentaje de tasa', value: element.tasa_num+'%' },
+      { title: 'Porcentaje de tasa', value: element.tasa_num + '%' },
       { title: 'Cuotas', value: element.cuotas },
     ];
   
@@ -120,24 +150,34 @@ export class ReporteVentasComponent implements OnInit {
       { title: 'Estado Pago', value: element.estadopago },
     );
   
-    let startY = 30;
     let pageHeight = doc.internal.pageSize.height;
   
+    // Establecer la fuente a Times New Roman o una similar y reducir el tamaño
+    doc.setFont("times");
+    doc.setFontSize(15); // Tamaño de fuente más pequeño
+  
+    const lineSpacing = 12; // Espaciado de línea reducido
+  
     rows.forEach(row => {
-      const splitTitle = doc.splitTextToSize(`${row.title}: `, 80);
-      const splitValue = doc.splitTextToSize(`${row.value}`, 110);
+      const splitTitle = doc.splitTextToSize(`${row.title}: `, 50);
+      const splitValue = doc.splitTextToSize(`${row.value}`, 100);
   
       // Check if there is enough space for the current row
-      if (startY + splitValue.length * 5 > pageHeight - 10) {
+      if (startY + splitTitle.length * lineSpacing > pageHeight - 10 || startY + splitValue.length * lineSpacing > pageHeight - 10) {
         doc.addPage();
         startY = 20;
       }
   
+      // Poner título en negrita
+      doc.setFont("times", "bold");
       doc.text(splitTitle, 14, startY);
-      doc.text(splitValue, 80, startY);
+      
+      // Poner valor en normal
+      doc.setFont("times", "normal");
+      doc.text(splitValue, 70, startY);
   
       // Move to the next line
-      startY += splitValue.length * 5 + 10; // Adjust line spacing as needed
+      startY += Math.max(splitTitle.length, splitValue.length) * lineSpacing + 2; // Adjust line spacing as needed
     });
   
     doc.save('reporte_venta.pdf');

@@ -43,8 +43,15 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem("token", data.token);
       this.snackBar.open("Se ha iniciado sesión correctamente!", "Aviso", { duration: 2000 });
 
+      this.userService.getByUsername(request.username).subscribe((cliente: Cliente) => {
+        console.log(cliente.id);
+        sessionStorage.setItem("id", cliente.id.toString());
+        if (cliente.limite_credito !== undefined) {
+          sessionStorage.setItem("credito", cliente.limite_credito.toString());
+        }
+        this.navigateToRoleBasedPage(); // Navega a la página basada en el rol
+      });
 
-      this.navigateToRoleBasedPage(); // Navega a la página basada en el rol
     }, error => {
       this.snackBar.open("Credenciales incorrectas!!!", "Aviso", { duration: 2000 });
     });
@@ -54,16 +61,9 @@ export class LoginComponent implements OnInit {
     this.role = this.authService.showRole();
     
     if (this.role == "USER") {
-      this.userService.getByUsername(this.username).subscribe((cliente: Cliente) => {
-        console.log(cliente+"aca cliente");
-        sessionStorage.setItem("id", cliente.id.toString());
-        if (cliente.limite_credito !== undefined) {
-          sessionStorage.setItem("credito", cliente.limite_credito.toString());
-        }
-      });
       this.router.navigate(['/user']);
     } else if (this.role == "ADMIN") {
       this.router.navigate(['/clientes']);
-    }
-  }
+    }
+  }
 }

@@ -33,7 +33,7 @@ th, td {
 }
 
 th {
-  background-color: #f1f1f1; /* Color de fondo para las celdas de encabezado */
+  background-color: white; /* Color de fondo para las celdas de encabezado */
   font-weight: bold; /* Texto en negrita para el encabezado */
 }
 
