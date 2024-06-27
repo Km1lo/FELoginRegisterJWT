@@ -23,10 +23,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.authService.verificar());
+    console.log("Paso por aqui console.log(this.authService.verificar());");
     let idPRUEBA = sessionStorage.getItem("credito");
     console.log(idPRUEBA);
     this.limiteCredito = Number(sessionStorage.getItem("credito"));
-
   }
 
   userHasRole() {

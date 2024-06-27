@@ -19,14 +19,14 @@
   
       <!-- Descripcion Column -->
       <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <th mat-header-cell *matHeaderCellDef> Productos </th>
         <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
       </ng-container>
   
       <!-- Subtotal Column -->
       <ng-container matColumnDef="subtotal">
         <th mat-header-cell *matHeaderCellDef> Subtotal </th>
-        <td mat-cell *matCellDef="let element"> {{element.subtotal}} </td>
+        <td mat-cell *matCellDef="let element"> S/.{{element.subtotal}} </td>
       </ng-container>
   
       <!-- Tasa Text Column -->
@@ -56,20 +56,20 @@
       <!-- Renta -->
       <ng-container matColumnDef="renta">
         <th mat-header-cell *matHeaderCellDef> Renta </th>
-        <td mat-cell *matCellDef="let element"> {{element.renta  | number:'1.2-2' }} </td>
+        <td mat-cell *matCellDef="let element"> S/.{{element.renta  | number:'1.2-2' }} </td>
       </ng-container>
   
       <!-- Interes -->
   
       <ng-container matColumnDef="interes">
         <th mat-header-cell *matHeaderCellDef> Interes </th>
-        <td mat-cell *matCellDef="let element"> {{element.interes | number:'1.2-2' }} </td>
+        <td mat-cell *matCellDef="let element"> S/.{{element.interes | number:'1.2-2' }} </td>
       </ng-container>
   
       <!-- totalAPagar -->
       <ng-container matColumnDef="totalAPagar">
         <th mat-header-cell *matHeaderCellDef> Total a Pagar </th>
-        <td mat-cell *matCellDef="let element"> {{element.totalAPagar  | number:'1.2-2' }} </td>
+        <td mat-cell *matCellDef="let element"> S/.{{element.totalAPagar  | number:'1.2-2' }} </td>
       </ng-container>
   
       <!-- diasTrasladar -->
@@ -82,14 +82,33 @@
   
       <ng-container matColumnDef="valorFuturo">
         <th mat-header-cell *matHeaderCellDef> Valor Futuro </th>
-        <td mat-cell *matCellDef="let element"> {{element.valorFuturo  | number:'1.2-2' }} </td>
+        <td mat-cell *matCellDef="let element"> S/.{{element.valorFuturo  | number:'1.2-2' }} </td>
       </ng-container>
   
       <!-- Intereses -->
       <ng-container matColumnDef="intereses">
         <th mat-header-cell *matHeaderCellDef> Intereses </th>
-        <td mat-cell *matCellDef="let element"> {{element.intereses  | number:'1.2-2' }} </td>
+        <td mat-cell *matCellDef="let element"> S/.{{element.intereses  | number:'1.2-2' }} </td>
       </ng-container>
+
+      <!-- Estadopago -->
+      <ng-container matColumnDef="estadopago">
+        <th mat-header-cell *matHeaderCellDef> Estado Pago </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="getEstadopagoStyles(element.estadopago)">
+          {{element.estadopago}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          <button mat-icon-button color="primary" (click)="opedEditDialog(element)" [disabled]="element.estadopago === 'Pagado'">
+            <span class="material-symbols-outlined">
+              payments
+              </span>
+          </button>            
+        </td>
+    </ng-container>
   
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

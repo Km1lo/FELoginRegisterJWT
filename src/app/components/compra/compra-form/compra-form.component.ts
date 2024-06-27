@@ -28,9 +28,9 @@ export class CompraFormComponent implements OnInit {
     { value: 1, viewValue: 'Diario' },
     { value: 15, viewValue: 'Quincenal' },
     { value: 30, viewValue: 'Mensual' },
-    { value: 90, viewValue: 'Trimestral' },
-    { value: 180, viewValue: 'Semestral' },
-    { value: 365, viewValue: 'Anual' },
+    //{ value: 90, viewValue: 'Trimestral' },
+    //{ value: 180, viewValue: 'Semestral' },
+    //{ value: 365, viewValue: 'Anual' },
     { value: 0, viewValue: null },
   ];
 

@@ -20,6 +20,8 @@ import { ProductosListComponent } from './components/productos/productos-list/pr
 import { CompraFormComponent } from './components/compra/compra-form/compra-form.component';
 import { ReporteVentasComponent } from './components/ventas/reporte-ventas/reporte-ventas.component';
 import { HistMovimientoComponent } from './components/hist-movimiento/hist-movimiento.component';
+import { ReporteVentasEditComponent } from './components/ventas/reporte-ventas-edit/reporte-ventas-edit.component';
+import { HistMovimientoEditComponent } from './components/hist-movimiento/hist-movimiento-edit/hist-movimiento-edit.component'; 
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { HistMovimientoComponent } from './components/hist-movimiento/hist-movim
     ProductosListComponent,
     CompraFormComponent,
     ReporteVentasComponent,
-    HistMovimientoComponent
+    HistMovimientoComponent,
+    ReporteVentasEditComponent,
+    HistMovimientoEditComponent,
 
 
   ],

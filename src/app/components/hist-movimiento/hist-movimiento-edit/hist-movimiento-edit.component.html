@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Cambiar estado de la compra</h2>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    
+      <mat-form-field class="full-width">
+        <mat-label>Estado Pago</mat-label>
+        <mat-select formControlName="estadopago">
+          <mat-option *ngFor="let estado of estadosPago" [value]="estado.value">
+            {{ estado.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="button-container">
+        <button mat-button (click)="cerrarDialogo()">Cancelar</button>
+        <button mat-button color="primary" [disabled]="editForm.invalid" (click)="confirmado()">Guardar</button>
+      </div>
+    </form>
+    
+  </div>

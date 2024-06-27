@@ -36,7 +36,11 @@ export class HistMovimientoService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }
-
-
+  edit(cliente: HistmovimientoDTO){
+    let token = sessionStorage.getItem("token");
+    return this.http.put<HistmovimientoDTO[]>(`${base_url}/hist-movimiento`,cliente,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
 }
 
